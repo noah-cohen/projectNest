@@ -3,7 +3,10 @@ import { User } from './user.entity';
 
 @Injectable()
 export class UsersService {
-    private users: User[] = [];
+    private users: User[] = [
+        { id: 1, name: 'noah', email: 'n548548106@gmail.com', phone: '0548548106' },
+        { id: 2, name: 'miri', email: 'm0556773878@gmail.com', phone: '0556773878' },
+    ];
     private currentId = 1;
 
     // יצירה
@@ -17,7 +20,7 @@ export class UsersService {
         this.users.push(newUser);
         return newUser;
     }
-// עדכון
+    // עדכון
     updateUserById(id: number, newName: string, newEmail: string, newPhone: string): User {
         const user = this.findUserById(id);
         if (!user) {
@@ -37,7 +40,7 @@ export class UsersService {
         }
         this.users.splice(index, 1);
     }
-// קבלה לפי ID
+    // קבלה לפי ID
     getUserById(id: number): User {
         const user = this.findUserById(id);
         if (!user) {
